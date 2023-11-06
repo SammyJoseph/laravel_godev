@@ -28,7 +28,7 @@ Route::middleware([
 });
 
 /* 
-** Videoclase #1
+** Clase #1
 */
 
 /* Route::view();
@@ -44,5 +44,17 @@ Route::get('/', function(){
     return 'hello world';
 });
 
-Route::view('/', 'landing.index')->name('index');
-Route::view('about', 'landing.about')->name('about');
+// Todas las rutas de este grupo usan el middleware auth
+Route::middleware(['auth'])->group(function(){
+    Route::view('/', 'landing.index')->name('index');
+    Route::view('about', 'landing.about')->name('about');
+});
+
+
+/* 
+** Clase #2
+*/
+Route::view('clase-2', 'clase-2.index')->name('clase-2.index');
+Route::view('clase-2/about', 'clase-2.about')->name('clase-2.about');
+Route::view('clase-2/services', 'clase-2.services')->name('clase-2.services');
+Route::view('clase-2/contact', 'clase-2.contact')->name('clase-2.contact');
