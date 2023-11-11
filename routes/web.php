@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -40,6 +41,11 @@ Route::patch(); */
 
 Route::view('/', 'welcome')->name('welcome');
 
+
+/* 
+** Clase #1
+** usando rutas
+*/
 Route::get('/', function(){
     return 'hello world';
 });
@@ -53,8 +59,20 @@ Route::middleware(['auth'])->group(function(){
 
 /* 
 ** Clase #2
+** usando blade
 */
 Route::view('clase-2', 'clase-2.index')->name('clase-2.index');
 Route::view('clase-2/about', 'clase-2.about')->name('clase-2.about');
 Route::view('clase-2/services', 'clase-2.services')->name('clase-2.services');
 Route::view('clase-2/contact', 'clase-2.contact')->name('clase-2.contact');
+
+/* 
+** Clase #3
+** usando migraciones
+*/
+
+/* 
+** Clase #4
+** usando controladores
+*/
+Route::get('clase-4', [UserController::class, 'index'])->name('user.index');
