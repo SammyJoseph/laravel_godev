@@ -6,5 +6,10 @@
 
 @section('title', 'Index Clase 2')
 @section('content')
-    <h1 class="text-blue-500">Index - Clase 4</h1>
+    <h1 class="text-green-500">Index - Clase 4</h1>
+    <ul>
+        @foreach ($users as $user)
+            <li class="mt-2">{{ $loop->iteration }}) {{ $user->name }} - <span class="text-purple-500">{{ $user->email }}</span></li>
+        @endforeach
+    </ul>
 @endsection

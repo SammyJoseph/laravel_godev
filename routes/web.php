@@ -76,3 +76,4 @@ Route::view('clase-2/contact', 'clase-2.contact')->name('clase-2.contact');
 ** usando controladores
 */
 Route::get('clase-4', [UserController::class, 'index'])->name('user.index');
+Route::get('clase-4/create', [UserController::class, 'create'])->name('user.create');

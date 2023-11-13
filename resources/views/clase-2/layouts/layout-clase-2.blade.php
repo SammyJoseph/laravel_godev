@@ -21,7 +21,7 @@
     {{-- Parcial (porción de código) que incluye el menú --}}
     @include('clase-2.layouts._partials.menu')
 
-    <div class="mt-20 p-4">
+    <div class="mt-20 p-4 max-w-screen-xl mx-auto">
         @yield('content')
     </div>
 
