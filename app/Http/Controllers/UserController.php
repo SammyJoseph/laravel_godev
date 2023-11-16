@@ -10,8 +10,16 @@ class UserController extends Controller
 {
     public function index()
     {
-        $users = User::all();
-
+        // $users = User::all();
+        // $users = User::where('age', '30')->get();
+        // $users = User::where('age', '>=', '30')->get();
+        // $users = User::where('age', '<=', '30')->where('zip_code', '112233')->get();
+        // $users = User::where('age', '>=', '30')->orWhere('zip_code', '112233')->get();
+        // $users = User::where('age', '>=', '30')->orWhere('zip_code', '112233')->orderBy('age', 'asc')->get();
+        // $users = User::where('age', '>=', '30')->orWhere('zip_code', '112233')->orderBy('age', 'asc')->first();
+        $users = User::find(2);
+        // $users = User::findOrFail(22);
+        
         // return view('clase-4.index', ['users' => $users]);
         return view('clase-4.index', compact('users')); // same as ↑
     }
