@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
@@ -17,8 +18,13 @@ class UserController extends Controller
         // $users = User::where('age', '>=', '30')->orWhere('zip_code', '112233')->get();
         // $users = User::where('age', '>=', '30')->orWhere('zip_code', '112233')->orderBy('age', 'asc')->get();
         // $users = User::where('age', '>=', '30')->orWhere('zip_code', '112233')->orderBy('age', 'asc')->first();
-        $users = User::find(2);
+        // $users = User::find(2);
         // $users = User::findOrFail(22);
+
+        // $users = DB::select( DB::raw("SELECT * from users WHERE age=30") );
+        // $users = DB::select("SELECT * FROM users WHERE age = 30");
+        $users = DB::table('users')->select(DB::raw('*'))->where('age', '=', 32)->get();
+
         
         // return view('clase-4.index', ['users' => $users]);
         return view('clase-4.index', compact('users')); // same as ↑
