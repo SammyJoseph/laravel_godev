@@ -15,6 +15,8 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.0.0/flowbite.min.css" rel="stylesheet" />
+
+    @stack('css')
 </head>
 
 <body>

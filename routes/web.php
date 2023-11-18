@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\NoteController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -77,3 +78,15 @@ Route::view('clase-2/contact', 'clase-2.contact')->name('clase-2.contact');
 */
 Route::get('clase-4', [UserController::class, 'index'])->name('user.index');
 Route::get('clase-4/create', [UserController::class, 'create'])->name('user.create');
+
+
+/* 
+** Clase #5
+** el orden de las rutas importa; Laravel le da prioridad a la primera (arriba)
+*/
+Route::get('note/{id}', function($id){ return 'arriba ' . $id; });
+Route::get('note/6', function(){ return 'abajo 6'; });
+
+Route::get('clase-5', [NoteController::class, 'index'])->name('clase-5.index');
+Route::get('clase-5/create', [NoteController::class, 'create'])->name('clase-5.create');
+Route::post('clase-5', [NoteController::class, 'store'])->name('clase-5.store');
