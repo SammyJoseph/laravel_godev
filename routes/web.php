@@ -90,3 +90,5 @@ Route::get('note/6', function(){ return 'abajo 6'; });
 Route::get('clase-5', [NoteController::class, 'index'])->name('clase-5.index');
 Route::get('clase-5/create', [NoteController::class, 'create'])->name('clase-5.create');
 Route::post('clase-5', [NoteController::class, 'store'])->name('clase-5.store');
+Route::get('clase-5/{note}/edit', [NoteController::class, 'edit'])->name('clase-5.edit');
+Route::put('clase-5/{note}', [NoteController::class, 'update'])->name('clase-5.update');

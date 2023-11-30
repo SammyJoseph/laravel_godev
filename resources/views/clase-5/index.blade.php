@@ -13,7 +13,7 @@
     </div>
     <ul class="mt-8">
         @forelse ($notes as $note)
-            <li class="flex space-x-2 items-center">
+            <li class="flex space-x-2 items-center mb-2">
                 <span>{{ $note->title }}</span>
                 <span class="text-gray-500 text-sm">{{ $note->author }}</span>
 
@@ -22,6 +22,8 @@
                 @else
                     <span class="material-symbols-outlined">check_box_outline_blank</span>
                 @endif
+
+                <a class="text-sm text-blue-400 italic" href="{{ route('clase-5.edit', $note) }}">Editar</a>
             </li>
         @empty
             <li class="italic text-gray-500">No se registraron notas</li> 
