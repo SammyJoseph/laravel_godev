@@ -14,7 +14,7 @@
     <ul class="mt-8">
         @forelse ($notes as $note)
             <li class="flex space-x-2 items-center mb-2">
-                <span>{{ $note->title }}</span>
+                <a href="{{ route('clase-5.show', $note) }}">{{ $note->title }}</a>
                 <span class="text-gray-500 text-sm">{{ $note->author }}</span>
 
                 @if ($note->done)

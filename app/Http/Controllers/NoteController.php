@@ -45,9 +45,9 @@ class NoteController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Note $note)
     {
-        //
+        return view('clase-5.show', compact('note'));
     }
 
     /**

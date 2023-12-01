@@ -6,9 +6,15 @@
 
 @section('title', $page_title)
 @section('content')
-    <a href="{{ route('clase-5.index') }}" class="text-green-500">{{ $page_title }}</a>
+    <h1 class="text-green-500">{{ $page_title }}</h1>
+    <div class="mt-8">
+        <a href="{{ route('clase-5.index') }}"
+            class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">
+            Volver
+        </a>
+    </div>
 
-    <form class="mt-10" action="{{ route('clase-5.update', $note) }}" method="POST">
+    <form class="mt-12" action="{{ route('clase-5.update', $note) }}" method="POST">
         @csrf
         @method('PUT')
 
