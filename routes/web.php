@@ -93,3 +93,4 @@ Route::post('clase-5', [NoteController::class, 'store'])->name('clase-5.store');
 Route::get('clase-5/{note}/edit', [NoteController::class, 'edit'])->name('clase-5.edit');
 Route::put('clase-5/{note}', [NoteController::class, 'update'])->name('clase-5.update');
 Route::get('clase-5/{note}', [NoteController::class, 'show'])->name('clase-5.show');
+Route::delete('clase-5/{note}', [NoteController::class, 'destroy'])->name('clase-5.destroy');

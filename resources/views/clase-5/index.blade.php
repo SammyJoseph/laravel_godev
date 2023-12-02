@@ -23,7 +23,13 @@
                     <span class="material-symbols-outlined">check_box_outline_blank</span>
                 @endif
 
-                <a class="text-sm text-blue-400 italic" href="{{ route('clase-5.edit', $note) }}">Editar</a>
+                <a class="text-sm text-blue-400 italic hover:underline" href="{{ route('clase-5.edit', $note) }}">Editar</a>
+
+                <form action="{{ route('clase-5.destroy', $note) }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="text-sm text-red-400 italic hover:underline">Borrar</button>
+                </form>
             </li>
         @empty
             <li class="italic text-gray-500">No se registraron notas</li> 
