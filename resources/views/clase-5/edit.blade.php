@@ -14,6 +14,16 @@
         </a>
     </div>
 
+    @if ($errors->any())
+        <div class="alert alert-danger mt-12">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li class="list-inside list-disc text-red-400 text-sm">{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
     <form class="mt-12" action="{{ route('clase-5.update', $note) }}" method="POST">
         @csrf
         @method('PUT')
@@ -21,7 +31,7 @@
         <div class="relative z-0 w-full mb-6 group">
             <input type="text" name="title"
                 class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" required
-                value="{{ $note->title }}" />
+                value="{{ old('title', $note->title) }}" />
             <label for="floating_repeat_password"
                 class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
                 Título</label>
@@ -29,7 +39,7 @@
         <div class="relative z-0 w-full mb-6 group">
             <input type="text" name="description"
                 class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" required
-                value="{{ $note->description }}" />
+                value="{{ old('description', $note->description) }}" />
             <label for="floating_repeat_password"
                 class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
                 Descripción</label>
@@ -38,7 +48,7 @@
             <div class="relative z-0 w-full mb-6 group">
                 <input type="text" name="author"
                     class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" required
-                    value="{{ $note->author }}" />
+                    value="{{ old('author', $note->author) }}" />
                 <label for="floating_first_name"
                     class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
                     Autor</label>
@@ -46,7 +56,7 @@
             <div class="relative z-0 w-full mb-6 group">
                 <input type="text" name="done"
                     class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" required 
-                    value="{{ $note->done }}" />
+                    value="{{ old('done', $note->done) }}" />
                 <label for="floating_last_name"
                     class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
                     ¿Hecho?</label>

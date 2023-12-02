@@ -5,12 +5,14 @@
 
 @section('title', 'Index Clase 5')
 @section('content')
+    @include('clase-5._partials.session')
+
     <h1 class="text-green-500">Index - Clase 5</h1>
     <div class="mt-8">
         <a href="{{ route('clase-5.create') }}" class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">
             Crear Nota
         </a>
-    </div>
+    </div>    
     <ul class="mt-8">
         @forelse ($notes as $note)
             <li class="flex space-x-2 items-center mb-2">

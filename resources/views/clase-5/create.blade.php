@@ -14,6 +14,16 @@
         </a>
     </div>
 
+    @if ($errors->any())
+        <div class="alert alert-danger mt-12">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li class="list-inside list-disc text-red-400 text-sm">{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
     <form class="mt-12" action="{{ route('clase-5.store') }}" method="POST">
         @csrf
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\NoteRequest;
 use App\Models\Note;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -30,18 +31,11 @@ class NoteController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request): RedirectResponse
+    public function store(NoteRequest $request): RedirectResponse
     {
-        $validated = $request->validate([
-            'title'         => 'string|required|min:3|max:255',
-            'description'   => 'string|required|min:3|max:255',
-            'author'        => 'string|required|min:3|max:255',
-            'done'          => 'required|boolean',
-        ]);
+        Note::create($request->validated());
 
-        Note::create($validated);
-
-        return redirect()->route('clase-5.index');
+        return redirect()->route('clase-5.index')->with('success', 'La nota se creó.');
     }
 
     /**
@@ -63,18 +57,11 @@ class NoteController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Note $note): RedirectResponse
-    {
-        $validated = $request->validate([
-            'title'         => 'string|required|min:3|max:255',
-            'description'   => 'string|required|min:3|max:255',
-            'author'        => 'string|required|min:3|max:255',
-            'done'          => 'required|boolean',
-        ]);
+    public function update(NoteRequest $request, Note $note): RedirectResponse
+    {        
+        $note->update($request->all());
 
-        $note->update($validated);
-
-        return redirect()->route('clase-5.index');
+        return redirect()->route('clase-5.index')->with('success', 'La nota se actualizó.');
     }
 
     /**
@@ -84,6 +71,6 @@ class NoteController extends Controller
     {
         $note->delete();
 
-        return redirect()->route('clase-5.index');
+        return redirect()->route('clase-5.index')->with('delete', 'La nota se eliminó.');
     }
 }
