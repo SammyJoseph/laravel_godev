@@ -3,19 +3,24 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\NoteApiRequest;
+use App\Http\Resources\NoteApiResource;
 use App\Models\NoteApi;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Resources\Json\JsonResource;
 
 class NoteApiController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index():JsonResponse
+    public function index():JsonResource
     {
         $notes = NoteApi::all();
 
-        return response()->json($notes, 200);
+        // return response()->json($notes, 200);
+
+        // return new NoteApiResource(); // cuando se retorna un recurso único
+        return NoteApiResource::collection($notes); // cuando se retorna una colección
     }
 
     /**
@@ -35,17 +40,19 @@ class NoteApiController extends Controller
 
         return response()->json([
             'success'   => true,
-            'data'      => $note // por convención se devuelve el recurso creado
+            // 'data'      => $note // por convención se devuelve el recurso creado
+            'data'      => new NoteApiResource($note) // se usa new cuando se retorna un recurso único (no una colección)
         ], 201);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show($id):JsonResponse // no utilizar NoteApi $note como en un controlador normal (usar find($id))
+    public function show($id):JsonResource // no utilizar NoteApi $note como en un controlador normal (usar find($id))
     {
         $note = NoteApi::find($id);
-        return response()->json($note, 200);
+        // return response()->json($note, 200);
+        return new NoteApiResource($note);
     }
 
     /**
@@ -66,7 +73,8 @@ class NoteApiController extends Controller
 
         return response()->json([
             'success'   => true,
-            'data'      => $note // por convención se devuelve el recurso actualizado
+            // 'data'      => $note // por convención se devuelve el recurso actualizado
+            'data'      => new NoteApiResource($note),
         ], 200);
     }
 
