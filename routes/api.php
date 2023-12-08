@@ -26,5 +26,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 }); */
 
 Route::prefix('v1')->group(function () {
-    Route::resource('clase-6', NoteApiController::class);
+    Route::resource('clase-6', NoteApiController::class)->except('create', 'edit');
 });

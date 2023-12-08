@@ -3,18 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\NoteApiRequest;
-use App\Models\Note;
 use App\Models\NoteApi;
-use Illuminate\Http\Request;
+use Illuminate\Http\JsonResponse;
 
 class NoteApiController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index():JsonResponse
     {
-        $notes = Note::all();
+        $notes = NoteApi::all();
 
         return response()->json($notes, 200);
     }
@@ -30,20 +29,22 @@ class NoteApiController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(NoteApiRequest $request)
+    public function store(NoteApiRequest $request):JsonResponse
     {
-        Note::create($request->all());
+        $note = NoteApi::create($request->all());
 
         return response()->json([
-            'success' => true
+            'success'   => true,
+            'data'      => $note // por convención se devuelve el recurso creado
         ], 201);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(NoteApi $note)
+    public function show($id):JsonResponse // no utilizar NoteApi $note como en un controlador normal (usar find($id))
     {
+        $note = NoteApi::find($id);
         return response()->json($note, 200);
     }
 
@@ -58,20 +59,23 @@ class NoteApiController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(NoteApiRequest $request, NoteApi $note)
+    public function update(NoteApiRequest $request, $id):JsonResponse
     {
+        $note = NoteApi::find($id);
         $note->update($request->all());
 
         return response()->json([
-            'success' => true,
+            'success'   => true,
+            'data'      => $note // por convención se devuelve el recurso actualizado
         ], 200);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(NoteApi $note)
+    public function destroy($id):JsonResponse
     {
+        $note = NoteApi::find($id);
         $note->delete();
 
         return response()->json([

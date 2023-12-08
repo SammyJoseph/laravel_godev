@@ -10,4 +10,6 @@ class NoteApi extends Model
     use HasFactory;
 
     protected $guarded = [];
+
+    protected $hidden = ['created_at'];
 }
