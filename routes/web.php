@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\NoteController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -94,3 +95,14 @@ Route::get('clase-5/{note}/edit', [NoteController::class, 'edit'])->name('clase-
 Route::put('clase-5/{note}', [NoteController::class, 'update'])->name('clase-5.update');
 Route::get('clase-5/{note}', [NoteController::class, 'show'])->name('clase-5.show');
 Route::delete('clase-5/{note}', [NoteController::class, 'destroy'])->name('clase-5.destroy');
+
+/* 
+** Clase #6
+** API (en la ruta api)
+*/
+
+/* 
+** Clase #7
+** factories & seeders
+*/
+Route::get('/clase-7', [ProductController::class, 'index'])->name('clase-7.index');

@@ -19,6 +19,11 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+/* 
+** Clase #6
+** APIs
+*/
+
 // Route::prefix('v1')->resource('clase-6', NoteApiController::class);
 // Route::resource('clase-6', NoteApiController::class);
 /* Route::group(['prefix' => 'v1'], function () {
