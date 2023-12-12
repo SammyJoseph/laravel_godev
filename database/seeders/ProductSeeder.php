@@ -13,18 +13,6 @@ class ProductSeeder extends Seeder
      */
     public function run(): void
     {
-        Product::create([
-            'name'              => 'Producto 1',
-            'short_description' => 'Lorem ipsum',
-            'description'       => 'Lorem ipsum dolor set asimet',
-            'price'             => '25.00'
-        ]);
-
-        Product::create([
-            'name'              => 'Producto 2',
-            'short_description' => 'Lorem ipsum',
-            'description'       => 'Lorem ipsum dolor set asimet',
-            'price'             => '43.00'
-        ]);
+        Product::factory(10)->create();
     }
 }

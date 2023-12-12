@@ -10,7 +10,7 @@
     <h1 class="text-green-500">Index - Clase 7</h1>
 
     @forelse ($products as $product)
-        <div class="mb-4 border p-4">
+        <div class="mt-4 border p-4">
             <p>{{ $product->name }}</p>
             <p>{{ $product->short_description }}</p>
             <p>S/{{ number_format($product->price, 2) }}</p>
