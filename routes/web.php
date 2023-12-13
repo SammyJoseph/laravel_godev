@@ -106,3 +106,9 @@ Route::delete('clase-5/{note}', [NoteController::class, 'destroy'])->name('clase
 ** factories & seeders
 */
 Route::get('/clase-7', [ProductController::class, 'index'])->name('clase-7.index');
+
+/* 
+** Clase #8
+** relaciones
+*/
+Route::get('/clase-8', [UserController::class, 'oneToOne'])->name('clase-8.onetoone');

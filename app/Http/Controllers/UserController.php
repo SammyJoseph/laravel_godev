@@ -52,4 +52,11 @@ class UserController extends Controller
 
         return redirect()->route('user.index');
     }
+
+    public function oneToOne()
+    {
+        $users = User::all();
+
+        return view('clase-8.onetoone', compact('users'));
+    }
 }
