@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\NoteApiController;
+use App\Http\Resources\UserResource;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -32,4 +34,13 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::prefix('v1')->group(function () {
     Route::resource('clase-6', NoteApiController::class)->except('create', 'edit');
+});
+
+/* 
+** Clase #8
+** relaciones
+*/
+Route::get('/clase-8', function(){
+    $users = User::all();
+    return UserResource::collection($users);
 });
