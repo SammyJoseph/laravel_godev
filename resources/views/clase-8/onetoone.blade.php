@@ -14,8 +14,17 @@
             <p><span class="font-bold">Nombre: </span>{{ $user->name }}</p>
             <p><span class="font-bold">Email: </span>{{ $user->email }}</p>
             <p><span class="font-bold">Teléfono: </span>+{{ $user->phone->prefix }} {{ $user->phone->number }}</p>
+
+            <p><span class="font-bold">Direcciones:</p>
+            <ul>
+                @forelse ($user->addresses as $address)
+                    <li class="list-disc list-inside">{{ $address->direction }}, <span class="text-gray-500">{{ $address->city }}</span></li>
+                @empty
+                    <li>No hay una dirección...</li>
+                @endforelse
+            </ul>
         </div>
     @empty
-        <p>No hay usuarios...</p>        
+        <p>No hay usuarios...</p>      
     @endforelse
 @endsection

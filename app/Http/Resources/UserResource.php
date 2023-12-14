@@ -16,10 +16,11 @@ class UserResource extends JsonResource
     {
         // return parent::toArray($request);
         return [
-            'id'    => $this->id,
-            'name'  => $this->name,
-            'email' => $this->email,
-            'phone' => '(+' . $this->phone->prefix . ')' . $this->phone->number
+            'id'        => $this->id,
+            'name'      => $this->name,
+            'email'     => $this->email,
+            'phone'     => '(+' . $this->phone->prefix . ')' . $this->phone->number,
+            'addresses' => AddressResource::collection($this->addresses), // address tiene su propio resource para formatear la info que llega
         ];
     }
 }
