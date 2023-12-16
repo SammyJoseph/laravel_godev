@@ -23,8 +23,17 @@
                     <li>No hay una dirección...</li>
                 @endforelse
             </ul>
+
+            <p><span class="font-bold">Roles:</p>
+                <ul>
+                    @forelse ($user->roles as $role)
+                        <li class="list-disc list-inside">{{ $role->name }}</li>
+                    @empty
+                        <li>No hay un rol...</li>
+                    @endforelse
+                </ul>
         </div>
     @empty
         <p>No hay usuarios...</p>      
-    @endforelse
+    @endforelse    
 @endsection

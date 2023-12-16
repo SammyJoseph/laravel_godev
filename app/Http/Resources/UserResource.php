@@ -21,6 +21,7 @@ class UserResource extends JsonResource
             'email'     => $this->email,
             'phone'     => '(+' . $this->phone->prefix . ')' . $this->phone->number,
             'addresses' => AddressResource::collection($this->addresses), // address tiene su propio resource para formatear la info que llega
+            'roles'     => RoleResource::collection($this->roles), 
         ];
     }
 }

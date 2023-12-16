@@ -35,6 +35,8 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class, // crea 9 usuarios
             PhoneSeeder::class, // asigna un teléfono por cada usuario
             AddressSeeder::class, // asigna un número aleatorio de direcciones por cada usuario
+            RoleSeeder::class, // crea 4 roles únicos
+            RoleUserSeeder::class, // crea 20 registros en role_user aleatoriamente
         ]);
     }
 }

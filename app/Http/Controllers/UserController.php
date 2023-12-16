@@ -53,10 +53,10 @@ class UserController extends Controller
         return redirect()->route('user.index');
     }
 
-    public function oneToOne()
+    public function relations()
     {
         $users = User::all();
 
-        return view('clase-8.onetoone', compact('users'));
+        return view('clase-8.index', compact('users'));
     }
 }
