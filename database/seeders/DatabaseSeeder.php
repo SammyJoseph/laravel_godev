@@ -37,6 +37,7 @@ class DatabaseSeeder extends Seeder
             AddressSeeder::class, // asigna un número aleatorio de direcciones por cada usuario
             RoleSeeder::class, // crea 4 roles únicos
             RoleUserSeeder::class, // crea 20 registros en role_user aleatoriamente
+            SimSeeder::class,
         ]);
     }
 }

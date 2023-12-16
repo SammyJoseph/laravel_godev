@@ -14,6 +14,7 @@
             <p><span class="font-bold">Nombre: </span>{{ $user->name }}</p>
             <p><span class="font-bold">Email: </span>{{ $user->email }}</p>
             <p><span class="font-bold">Teléfono: </span>+{{ $user->phone->prefix }} {{ $user->phone->number }}</p>
+            <p><span class="font-bold">Sim: </span><span class="capitalize">{{ $user->phoneSim->company }}</span></p>
 
             <p><span class="font-bold">Direcciones:</p>
             <ul>

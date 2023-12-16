@@ -20,7 +20,7 @@ class PhoneFactory extends Factory
         return [
             'prefix'    => $this->faker->numberBetween(10, 99),
             'number'    => $this->faker->e164PhoneNumber(),
-            'user_id'   => User::inRandomOrder()->first()->id
+            // 'user_id'   => User::inRandomOrder()->first()->id // se asigna en el seeder
         ];
     }
 }
