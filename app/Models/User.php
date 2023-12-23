@@ -6,6 +6,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\HasOneThrough;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -83,6 +84,11 @@ class User extends Authenticatable
 
     public function phoneSim():HasOneThrough
     {
-        return $this->hasOneThrough(Sim::class, Phone::class); // tiene la relacióno 1 a 1 con Sim a tráves de Phone
+        return $this->hasOneThrough(Sim::class, Phone::class); // tiene la relación 1 a 1 con Sim a tráves de Phone
+    }
+
+    public function addressFloor():HasManyThrough
+    {
+        return $this->hasManyThrough(Floor::class, Address::class); // tiene la relación 1 a muchos con Floor a través de Address
     }
 }

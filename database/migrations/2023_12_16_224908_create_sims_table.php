@@ -15,7 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('serial_number');
             $table->string('company');
-            $table->bigInteger('phone_id')->constrained()->cascadeOnDelete();
+            
+            $table->foreignId('phone_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
     }

@@ -25,14 +25,23 @@
                 @endforelse
             </ul>
 
+            <p><span class="font-bold">Pisos:</p>
+            <ul>
+                @forelse ($user->addressFloor as $floor)
+                    <li class="list-disc list-inside">Piso #{{ $floor->number }} <span class="text-gray-500">({{ $floor->address->direction }})</span></li>
+                @empty
+                    <li>No hay un piso...</li>   
+                @endforelse
+            </ul>
+
             <p><span class="font-bold">Roles:</p>
-                <ul>
-                    @forelse ($user->roles as $role)
-                        <li class="list-disc list-inside">{{ $role->name }}</li>
-                    @empty
-                        <li>No hay un rol...</li>
-                    @endforelse
-                </ul>
+            <ul>
+                @forelse ($user->roles as $role)
+                    <li class="list-disc list-inside">{{ $role->name }}</li>
+                @empty
+                    <li>No hay un rol...</li>
+                @endforelse
+            </ul>            
         </div>
     @empty
         <p>No hay usuarios...</p>      
