@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\HasOneThrough;
+use Illuminate\Database\Eloquent\Relations\MorphOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
@@ -90,5 +91,10 @@ class User extends Authenticatable
     public function addressFloor():HasManyThrough
     {
         return $this->hasManyThrough(Floor::class, Address::class); // tiene la relación 1 a muchos con Floor a través de Address
+    }
+
+    public function image():MorphOne
+    {
+        return $this->morphOne(Image::class, 'imageable');
     }
 }

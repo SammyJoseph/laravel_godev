@@ -39,6 +39,9 @@ class DatabaseSeeder extends Seeder
             RoleUserSeeder::class, // crea 20 registros en role_user aleatoriamente
             SimSeeder::class,
             FloorSeeder::class,
+            ImageSeeder::class,
+            TagSeeder::class,
+            PostSeeder::class,
         ]);
     }
 }
