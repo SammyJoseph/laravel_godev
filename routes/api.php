@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ExampleController;
 use App\Http\Controllers\NoteApiController;
 use App\Http\Resources\UserResource;
 use App\Models\User;
@@ -44,3 +45,10 @@ Route::get('/clase-8', function(){
     $users = User::all();
     return UserResource::collection($users);
 });
+
+/* 
+** Clase #8
+** middlewares
+*/
+Route::middleware('example')->get('/clase-9', [ExampleController::class, 'index']);
+Route::get('/clase-9/noaccess', [ExampleController::class, 'noaccess'])->name('noaccess');
