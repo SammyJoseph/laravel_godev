@@ -54,8 +54,8 @@ Route::middleware('example')->get('/clase-9', [ExampleController::class, 'index'
 Route::get('/clase-9/noaccess', [ExampleController::class, 'noaccess'])->name('noaccess');
 
 Route::middleware('example', 'auth')->group(function () {
-    Route::get('/clase-9/grupo-1', function () { return response()->json('Middleware Group', 200); })->withoutMiddleware('example');
-    Route::get('/clase-9/grupo-2', function () { return response()->json('Middleware Group', 200); })->withoutMiddleware('auth', 'example');
+    Route::get('/clase-9/grupo-1', function () { return response()->json('Middleware Group', 200); });
+    Route::get('/clase-9/grupo-2', function () { return response()->json('Middleware Group', 200); })->withoutMiddleware('auth');
 });
 
 Route::get('/clase-9/grupo-3', function () { return response()->json('Middleware Group', 200); });

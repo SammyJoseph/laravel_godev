@@ -6,6 +6,11 @@ use Illuminate\Http\Request;
 
 class ExampleController extends Controller
 {
+    /* public function __construct()
+    {
+        $this->middleware('example');
+    } */
+
     public function index()
     {
         return response()->json('Hello world', 200);
