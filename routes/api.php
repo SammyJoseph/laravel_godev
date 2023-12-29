@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ExampleController;
 use App\Http\Controllers\NoteApiController;
 use App\Http\Resources\UserResource;
@@ -59,3 +60,6 @@ Route::middleware('example', 'auth')->group(function () {
 });
 
 Route::get('/clase-9/grupo-3', function () { return response()->json('Middleware Group', 200); });
+
+Route::post('/clase-9/create', [AuthController::class, 'createUser']);
+Route::post('/clase-9/login', [AuthController::class, 'loginUser']);
