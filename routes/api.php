@@ -48,7 +48,7 @@ Route::get('/clase-8', function(){
 });
 
 /* 
-** Clase #8
+** Clase #9
 ** middlewares
 */
 Route::middleware('example')->get('/clase-9', [ExampleController::class, 'index']);
