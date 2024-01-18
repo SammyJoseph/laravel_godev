@@ -111,4 +111,4 @@ Route::get('/clase-7', [ProductController::class, 'index'])->name('clase-7.index
 ** Clase #8
 ** relaciones
 */
-Route::get('/clase-8', [UserController::class, 'relations'])->name('clase-8.index'); 
+Route::get('/clase-8', [UserController::class, 'relations'])->name('clase-8.index');
