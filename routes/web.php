@@ -112,3 +112,11 @@ Route::get('/clase-7', [ProductController::class, 'index'])->name('clase-7.index
 ** relaciones
 */
 Route::get('/clase-8', [UserController::class, 'relations'])->name('clase-8.index');
+
+/* 
+** Clase #11
+** livewire
+*/
+Route::get('/clase-11', function () {
+    return view('clase-11.index');
+});
