@@ -3,6 +3,7 @@
 use App\Http\Controllers\NoteController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
+use App\Livewire\Note;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -120,3 +121,5 @@ Route::get('/clase-8', [UserController::class, 'relations'])->name('clase-8.inde
 Route::get('/clase-11', function () {
     return view('clase-11.index');
 });
+
+Route::get('/clase-11/crud', Note::class); // controlador de Livewire
