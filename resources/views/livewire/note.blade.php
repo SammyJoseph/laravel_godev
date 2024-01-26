@@ -39,6 +39,21 @@
         <button type="button" wire:click="store"
             class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Save</button>
 
+        <div class="mt-4">
+            @error('title')
+                <span class="text-red-500 text-sm">{{ $message }}</span>
+            @enderror
+            @error('description')
+                <span class="text-red-500 text-sm">{{ $message }}</span>
+            @enderror
+            @error('author')
+                <span class="text-red-500 text-sm">{{ $message }}</span>
+            @enderror
+            @error('done')
+                <span class="text-red-500 text-sm">{{ $message }}</span>
+            @enderror
+        </div>
+
         @if($message)
             <div id="alert-4"
             class="flex items-center p-4 text-yellow-800 rounded-lg bg-yellow-50 dark:bg-gray-800 dark:text-yellow-300 mt-8"
@@ -66,12 +81,26 @@
         @endif        
     </div>
 
-    
+    {{-- Lista de notas registradas --}}
     <div class="max-w-xl mx-auto bg-white p-12 rounded-lg mt-6">
         <h2 class="mb-2 text-lg font-semibold text-gray-900 dark:text-white">Notas:</h2>
         <ul class="max-w-md space-y-1 text-gray-700 list-disc list-inside dark:text-gray-400">
             @forelse ($notes as $note)
-                <li>{{ $note->title }}, <span class="opacity-60">by {{ $note->author }}</span></li>
+                <li class="flex justify-between">
+                    <div>
+                        {{ $note->title }},
+                        <span class="opacity-60">by {{ $note->author }}</span>
+                    </div>
+                    <div class="flex space-x-2">
+                        <svg wire:click="destroy({{ $note }})" class="w-5 text-red-500 cursor-pointer" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                            <path d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z"/>
+                        </svg>
+                        <svg wire:click="update({{ $note }})" class="w-5 text-blue-500 cursor-pointer" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                            <path d="M80 0v-160h800V0H80Zm160-320h56l312-311-29-29-28-28-311 312v56Zm-80 80v-170l448-447q11-11 25.5-17t30.5-6q16 0 31 6t27 18l55 56q12 11 17.5 26t5.5 31q0 15-5.5 29.5T777-687L330-240H160Zm560-504-56-56 56 56ZM608-631l-29-29-28-28 57 57Z"/>
+                        </svg>
+                    </div>
+                </li>
+                <hr class="!mb-2">
             @empty
                 <li>No hay registro de Notas</li>
             @endforelse
