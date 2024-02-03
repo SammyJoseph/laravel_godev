@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\InfoController;
 use App\Http\Controllers\NoteController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
@@ -123,3 +124,11 @@ Route::get('/clase-11', function () {
 });
 
 Route::get('/clase-11/crud', Note::class); // controlador de Livewire
+
+/* 
+** Clase #13
+** file storage
+*/
+Route::get('/clase-13', [InfoController::class, 'index'])->name('clase-13.index');
+Route::get('/clase-13/create', [InfoController::class, 'create'])->name('clase-13.create');
+Route::post('/clase-13/store', [InfoController::class, 'store'])->name('clase-13.store');
