@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rules\File;
 
 class InfoRequest extends FormRequest
 {
@@ -22,7 +23,8 @@ class InfoRequest extends FormRequest
     public function rules(): array
     {
         return [
-            // TODO
+            'file_name' => 'string|min:3|max:100',
+            'file_uri'  => ['nullable', File::image()->max(2 * 1024)],
         ];
     }
 }
