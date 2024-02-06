@@ -16,7 +16,7 @@
         @forelse ($infos as $info)
             <li>
                 {{ $info->name }}
-                <img class="max-w-sm" src="{{ url('/images/' . $info->file_uri) }}" alt="{{ $info->name }}"> {{-- ejemplo: http://127.0.0.1:8000/images/1707192035.svg --}}
+                <img class="max-w-sm" src="{{ url('storage/images/' . $info->file_uri) }}" alt="{{ $info->name }}"> {{-- ejemplo: http://127.0.0.1:8000/images/1707192035.svg --}}
             </li>
             <hr class="my-2">
         @empty

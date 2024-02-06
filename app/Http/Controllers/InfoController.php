@@ -33,7 +33,8 @@ class InfoController extends Controller
     {   
         /* guardar el archivo en carpeta */
         $image_name = time() . '.' . $request->file_uri->extension(); // crea un nombre único para el archivo; ejemplo: 1707191120.jpg
-        $request->file_uri->move(public_path('images'), $image_name); // guarda el archivo en una carpeta 'images'
+        // $request->file_uri->move(public_path('images'), $image_name); // guarda el archivo en el directorio público en una carpeta 'images'
+        $request->file_uri->storeAs('public/images', $image_name); // guarda el archivo en storage en una carpeta 'images' y es accesible desde el storage link en public
 
         /* guardar el registro en la bbdd */
         $info = new Info();
