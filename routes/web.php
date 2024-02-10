@@ -132,3 +132,11 @@ Route::get('/clase-11/crud', Note::class); // controlador de Livewire
 Route::get('/clase-13', [InfoController::class, 'index'])->name('clase-13.index');
 Route::get('/clase-13/create', [InfoController::class, 'create'])->name('clase-13.create');
 Route::post('/clase-13/store', [InfoController::class, 'store'])->name('clase-13.store');
+
+/* 
+** Clase #14
+** localización
+*/
+Route::get('/clase-14', function(){
+    return view('clase-14.index');
+})->name('clase-14.index');
