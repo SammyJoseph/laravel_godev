@@ -1,9 +1,11 @@
 <?php
 
 use App\Http\Controllers\InfoController;
+use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\NoteController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\WelcomeController;
 use App\Livewire\Note;
 use Illuminate\Support\Facades\Route;
 
@@ -140,3 +142,5 @@ Route::post('/clase-13/store', [InfoController::class, 'store'])->name('clase-13
 Route::get('/clase-14', function(){
     return view('clase-14.index');
 })->name('clase-14.index');
+Route::get('/clase-14/welcome', [WelcomeController::class, 'welcome'])->name('clase-14.welcome');
+Route::get('/clase-14/lang/{lang}', [LanguageController::class, 'switchLanguage'])->name('clase-14.switchlang');
