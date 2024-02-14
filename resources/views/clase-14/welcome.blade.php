@@ -14,7 +14,7 @@
 
 	<div class="flex flex-row items-center right-1 mb-4 space-x-2">
         @foreach (Config::get('languages') as $lang =>$language)
-                <a href="{{ route('clase-14.switchlang', $lang) }}" class="p-2 flex flex-row items-center border border-gray-300 text-sm font-medium text-gray-700 hover:bg-gray-100 focus:bg-gray-200 focus:outline-none">
+                <a href="{{ route('clase-14.switchlang', $lang) }}" class="{{ Session()->get('applocale') == $lang ? 'bg-green-200' : '' }} p-2 flex flex-row items-center border border-gray-300 text-sm font-medium text-gray-700 hover:bg-gray-100 focus:bg-gray-200 focus:outline-none">
                     <span class="text-md">{{ $language }}</span>
                     <span class="ml-1">
                         @switch($language)
