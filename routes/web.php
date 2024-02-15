@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\InfoController;
 use App\Http\Controllers\LanguageController;
+use App\Http\Controllers\MailController;
 use App\Http\Controllers\NoteController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
@@ -144,3 +145,10 @@ Route::get('/clase-14', function(){
 })->name('clase-14.index');
 Route::get('/clase-14/welcome', [WelcomeController::class, 'welcome'])->name('clase-14.welcome');
 Route::get('/clase-14/lang/{lang}', [LanguageController::class, 'switchLanguage'])->name('clase-14.switchlang');
+
+/* 
+** Clase #15
+** mailable
+*/
+Route::get('/clase-15', [MailController::class, 'index'])->name('clase-15.index');
+Route::get('/clase-15/mailme', [MailController::class, 'mailMe'])->name('clase-15.mail-me');
