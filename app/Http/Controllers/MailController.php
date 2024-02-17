@@ -13,6 +13,6 @@ class MailController extends Controller
 
     public function mailMe()
     {
-        // TODO
+        return view('emails.example');
     }
 }
