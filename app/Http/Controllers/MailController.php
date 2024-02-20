@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\ExampleMail;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class MailController extends Controller
 {
@@ -13,6 +15,9 @@ class MailController extends Controller
 
     public function mailMe()
     {
-        return view('emails.example');
+        $to = 'ewsitewp@gmail.com';
+        Mail::to($to)->send(new ExampleMail('Sam'));
+        
+        return redirect()->route('clase-15.index')->with('mail_success', 'El mensaje fue enviado con éxito a');
     }
 }
