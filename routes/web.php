@@ -4,6 +4,7 @@ use App\Http\Controllers\InfoController;
 use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\NoteController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WelcomeController;
@@ -152,3 +153,9 @@ Route::get('/clase-14/lang/{lang}', [LanguageController::class, 'switchLanguage'
 */
 Route::get('/clase-15', [MailController::class, 'index'])->name('clase-15.index');
 Route::get('/clase-15/mailme', [MailController::class, 'mailMe'])->name('clase-15.mail-me');
+
+/* 
+** Clase #16
+** events & listeners
+*/
+Route::get('/clase-16', [OrderController::class, 'create'])->name('clase-16.create');
