@@ -159,3 +159,9 @@ Route::get('/clase-15/mailme', [MailController::class, 'mailMe'])->name('clase-1
 ** events & listeners
 */
 Route::get('/clase-16', [OrderController::class, 'create'])->name('clase-16.create');
+
+/* 
+** Clase #17
+** asset bundling con vite y pdf
+*/
+Route::view('/clase-17', 'clase-17.index')->name('clase-17.index');;
