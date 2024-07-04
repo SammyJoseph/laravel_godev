@@ -6,6 +6,4 @@
         <span class="text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400">Index -</span>
         Clase 17
     </h1>
-
-    
 @endsection

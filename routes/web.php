@@ -5,6 +5,7 @@ use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\NoteController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\PdfController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WelcomeController;
@@ -164,4 +165,6 @@ Route::get('/clase-16', [OrderController::class, 'create'])->name('clase-16.crea
 ** Clase #17
 ** asset bundling con vite y pdf
 */
-Route::view('/clase-17', 'clase-17.index')->name('clase-17.index');;
+Route::view('/clase-17', 'clase-17.index')->name('clase-17.index');
+Route::get('/clase-17-2', [PdfController::class, 'index'])->name('clase-17-2.index');
+Route::get('/clase-17-2-download', [PdfController::class, 'download'])->name('clase-17-2.download');
