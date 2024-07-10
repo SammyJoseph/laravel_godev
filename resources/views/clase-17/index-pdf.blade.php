@@ -16,9 +16,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Clase 17</title>
+    <style>
+        .page-break { page-break-after: always; } // salto de página
+    </style>
 </head>
 <body>
-    <h2>Hola mundo</h2>
+    <h2>Hola {{ $data }}</h2>
     <a href="{{ route('clase-17-2.download') }}">Descargar</a>
+    <div class="page-break"></div>
+    <h2>Página 2</h2>
 </body>
 </html>
